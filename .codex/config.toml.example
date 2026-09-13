@@ -1,0 +1,16 @@
+# Codex config - VS Code Codex 擴充也會讀這個檔
+# 位置: ~/.codex/config.toml  (Codex Chat 會自動寫入這裡)【3231478799333848389†L7-L10】
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]
+
+[mcp_servers.github]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-github"]
+# 記得設環境變數 GITHUB_PERSONAL_ACCESS_TOKEN
+
+[mcp_servers.postgres]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-postgres"]
+# args 最後一個放你的 DATABASE_URL 環境變數

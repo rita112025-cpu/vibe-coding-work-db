@@ -1,22 +1,7 @@
-# AGENTS.md - Codex 會階層讀取
+# AGENTS.md - Codex 會階層式讀取這個檔
+# 放專案根目錄
 
-這個專案使用 Agent Skills 標準，Claude Code 和 Codex 共用同一套 SKILL.md
+# 工作用 Skills 已安裝在 ~/.agents/skills/ 
+# 使用方式: 在 Codex Chat 輸入 /skills 或直接說 "用 fe-arch 規劃"
 
-## 已安裝 Skills 位置
-- 全域: ~/.agents/skills/
-- 專案: .agents/skills/ 或 .codex/skills/
-
-從本站安裝: https://rita112025-cpu.github.io/vibe-coding-work-db/
-切到 Codex 模式複製指令
-
-## MCP Servers
-- context7: 即時抓最新官方文件
-- github: 直接操作 repo / PR / issue
-- postgres: 查 schema / 跑 SQL
-
-設定參考: .codex/config.toml.example 和 .vscode/mcp.json
-
-## 工作流
-- 新增功能前: /fe-arch
-- 收到需求: /fe-issue
-- 完成前驗證: /verification-before-completion
+# 篩選原則: 能省真實工時 > 看起來酷炫
