@@ -21,6 +21,8 @@
 
 其他項目等真的需要再裝。第三方 Skill 可能含腳本或引用其他資料夾，安裝前讀完整 SKILL.md、引用檔案與權限。
 
+前三項與 fe-mr-generator、fe-mr-review、retro 都來自 `jackyu/claude-skills`：個人 repo（2026/09/14 查核為 0 stars），未附 LICENSE，依著作權預設保留所有權利，工作或團隊使用前先向作者確認授權。
+
 ## 雙模式怎麼用
 
 線上版右上角有兩個切換：
