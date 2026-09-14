@@ -22,7 +22,7 @@
 - 使用者開始過度設計、寫得很複雜 → **暫停**：andrej-karpathy-guidelines 來源不存在，不要觸發
 
 ### 設計整合 - 必須自動觸發
-- 使用者貼 Figma 連結 → **暫停**：figma 來源不存在，不要觸發
+- 使用者貼 Figma 連結 → **必須先用 Figma 官方 MCP**（Claude：`figma@claude-plugins-official` plugin；Codex：`codex mcp add figma --url https://mcp.figma.com/mcp`）。未設定或未登入 Figma 時先提示使用者，不要改用其他來源
 - 使用者寫 React / Next.js / 要優化效能 → **必須先執行 vercel-react-best-practices**（安裝後的資料夾名稱是 `react-best-practices`）
 
 ### 測試與驗證 - 必須自動觸發
@@ -47,7 +47,7 @@
 
 ### 設計整合
 - `vercel-react-best-practices` - React/Next.js 最佳實踐（資料夾 `react-best-practices`）
-- `figma` - 暫停（來源不存在）
+- `figma` - Figma 官方 MCP 與 skills（Beta，需登入 Figma）
 
 ### 測試與驗證
 - `verification-before-completion` - 完成前驗證（優先，來源 obra/superpowers）

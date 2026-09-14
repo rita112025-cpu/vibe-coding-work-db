@@ -2,14 +2,14 @@
 
 依〈完整整理〉審查網站清單（Claude／Codex 雙模式）的問題清單。
 狀態：`待修` → `已修` → `已驗證`；`需決定` 表示要先確認範圍。
-目前：#01–#16、#18 與審查發現 R1–R12 已完成並 commit；#17、#19 需決定。
+目前：#01–#18 與審查發現 R1–R12 已完成；#19 需決定。
 
 ## 現狀（已完成，已驗證）
 
 - [x] id 6 verification-before-completion 改為 obra/superpowers，移除 official（commit aae1b98）
 - [x] 全站改用 `npx openskills install <repo>`，移除 `#skill` 後綴
 - [x] vercel-react-best-practices 正名為 react-best-practices（SKILL.md 內部名稱仍是 vercel-react-best-practices）
-- [x] figma、playwright-skill、andrej-karpathy-guidelines、security-guidance 停用安裝指令（GitHub 已核對：路徑不存在）
+- [x] figma、playwright-skill、andrej-karpathy-guidelines、security-guidance 停用安裝指令（GitHub 已核對：路徑不存在；figma 之後在 #17 改用官方來源）
 - [x] 3 個 MCP Server 改為「另外設定」並連到官方文件
 - [x] docx／xlsx／pptx／pdf 的 Codex 指令改列四個路徑（installer `--path` 支援多值，已核對原始碼）
 - [x] 卡片標示「優先四項／按需選用／來源不符／MCP Server」
@@ -33,7 +33,7 @@
 - [x] **#06 側欄推薦與清單矛盾** · 已驗證 · 推薦改優先四項；figma 標暫停；Playwright 標工具；postgres 註明已封存。
 - [x] **#07 暫停卡片同一句話顯示兩次** · 已驗證 · 描述改「原列用途：…」。
 - [x] **#08 retro 描述與 SKILL.md 不符** · 已驗證 · 照 SKILL.md 改；提示改 CLAUDE.md／AGENTS.md。
-- [x] **#09 標語仍暗示全部可直接裝** · 已驗證 · REVIEW FIRST；計數「16 項：9 可裝 · 4 暫停 · 3 MCP」。
+- [x] **#09 標語仍暗示全部可直接裝** · 已驗證 · REVIEW FIRST；計數改為依卡片狀態動態計算（#17 後為「16 項：10 可裝 · 3 暫停 · 3 MCP」）。
 - [x] **#10 Codex 安裝位置沒講清楚** · 已驗證 · 寫明 `$CODEX_HOME/skills` 與官方 `.agents/skills`、`--dest`。
 
 ## P2：體驗與收尾
@@ -46,8 +46,10 @@
   - `Index-Dual.html`、`vibe-coding.html` 已從 repo 移除（仍可從 git 歷史還原）。
 - [x] **#16 Codex 一次性腳本留在根目錄** · 已刪除
   - `update-catalog.cjs` 未被 git 追蹤，已移到 Windows 資源回收筒。
-- [ ] **#17 figma 替代來源** · 需決定
-  - `jackyu/claude-skills` 有同名 figma skill，尚未審查。
+- [x] **#17 figma 替代來源** · 已改卡片
+  - 結論：不採用 `jackyu/claude-skills/skills/figma`；卡片改用官方來源，狀態由「來源不符」改為「按需選用 · 官方 Beta」。
+  - jackyu 版：純 Figma REST API 參考（無腳本），repo 無 LICENSE；對照官方文件有 7 處錯誤：網址只認 `/file/`（官方格式 `/:file_type/`，node-id 未轉 `1:2`）、Variables API 需 Enterprise 完整席位（寫成 organization 也行）、Dev Resources POST 應為 `dev_resources` 陣列、codegen 外掛 manifest 需 `editorType: ["dev"]`、Webhooks v2 應用 `context`/`context_id`、`/styles` 只回已發布樣式、宣稱可直接執行但缺 `getStyleNode` 等函式；另含建立 webhook 的寫入操作、流程會覆寫 `tailwind.config.js`。
+  - 官方替代：Claude `claude plugin install figma@claude-plugins-official`（Figma 官方 plugin，含遠端 MCP 與 skills）；Codex 用 OpenAI 精選 `openai/skills` 的 `skills/.curated/figma`，另設定 Figma 遠端 MCP `https://mcp.figma.com/mcp`。兩者皆為 Beta，受 Figma Developer Terms 約束。
 - [x] **#18 最終審查與驗證** · 已完成
   - `/fe-code-review` 四軸＋內建 code-review；修正後重跑語法、CSS class、資料不變量、雙模式、深淺色、375px、TOML/JSON 檢查。
 
