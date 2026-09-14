@@ -81,6 +81,8 @@
 - [x] **#20 jackyu 卡片星數與授權** · 已修
   - 6 張卡（fe-arch、fe-issue、fe-code-review、fe-mr-generator、fe-mr-review、retro）原寫「★ 2.1k」；實際 0 stars、0 forks、無 LICENSE（2026/09/14 查核）。
   - 星數改「★ 0 · 個人 repo」；注意事項、「安裝前必讀」、README 補上未附授權條款的說明。
+- [x] **#21 react-best-practices 星數過時** · 已修
+  - vercel-labs/agent-skills 原寫「★ 18.2k」，2026/09/14 查核為 31,171，改「★ 31.2k」。
 
 ## 需決定（新增）
 
