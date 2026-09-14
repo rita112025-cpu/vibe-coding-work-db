@@ -1,16 +1,20 @@
-# Codex config - VS Code Codex 擴充也會讀這個檔
-# 位置: ~/.codex/config.toml  (Codex Chat 會自動寫入這裡)【3231478799333848389†L7-L10】
+# Codex MCP 範本：Codex CLI、IDE 擴充與桌面 App 共用這份設定
+# 複製到 ~/.codex/config.toml（全域），或專案 .codex/config.toml（僅限信任的專案，已列入 .gitignore）
+# token 放環境變數；含密碼的連線字串只寫在全域 ~/.codex/config.toml，不要進 repo
 
 [mcp_servers.context7]
+# 建議到 context7.com/dashboard 申請免費 API key 提高速率上限，有 key 時 args 改成：
+# ["-y", "@upstash/context7-mcp", "--api-key", "YOUR_API_KEY"]
 command = "npx"
 args = ["-y", "@upstash/context7-mcp"]
 
 [mcp_servers.github]
-command = "npx"
-args = ["-y", "@modelcontextprotocol/server-github"]
-# 記得設環境變數 GITHUB_PERSONAL_ACCESS_TOKEN
+# GitHub 官方遠端 MCP；先設環境變數 GITHUB_PAT_TOKEN（最小權限的 PAT）
+url = "https://api.githubcopilot.com/mcp/"
+bearer_token_env_var = "GITHUB_PAT_TOKEN"
 
 [mcp_servers.postgres]
+# 參考伺服器已封存（modelcontextprotocol/servers-archived），正式使用前先評估替代方案
+# 最後一個參數換成你的連線字串（建議唯讀帳號），含密碼時只放全域設定
 command = "npx"
-args = ["-y", "@modelcontextprotocol/server-postgres"]
-# args 最後一個放你的 DATABASE_URL 環境變數
+args = ["-y", "@modelcontextprotocol/server-postgres", "postgresql://localhost/mydb"]

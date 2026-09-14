@@ -1,0 +1,5 @@
+# 本機設定與安裝產物，不要 commit 進公開 repo
+.codex/config.toml
+.claude/skills/
+.agent/skills/
+.env

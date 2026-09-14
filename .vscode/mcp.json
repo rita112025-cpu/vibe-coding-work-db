@@ -1,25 +1,26 @@
 {
-  "mcpServers": {
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "pg_url",
+      "description": "PostgreSQL URL（例如 postgresql://user:pass@localhost:5432/mydb，建議用唯讀帳號）",
+      "password": true
+    }
+  ],
+  "servers": {
     "context7": {
+      "type": "stdio",
       "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp"
-      ]
+      "args": ["-y", "@upstash/context7-mcp"]
     },
     "github": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-github"
-      ]
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/"
     },
     "postgres": {
+      "type": "stdio",
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-postgres"
-      ]
+      "args": ["-y", "@modelcontextprotocol/server-postgres", "${input:pg_url}"]
     }
   }
 }
